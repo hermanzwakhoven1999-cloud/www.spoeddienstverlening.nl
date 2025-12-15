@@ -1,187 +1,170 @@
-/* BASIS */
+/* Globale instellingen */
+:root {
+    --primary-blue: #00456B; /* Donkerblauw */
+    --accent-orange: #FF6633; /* Helder Oranje/Rood voor CTA */
+    --warning-yellow: #FFC107; /* Geel voor waarschuwingsbox */
+    --light-grey: #F5F5F5;
+    --text-color: #333;
+}
+
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* HEADER */
-.header {
-    background: #1a2a47;
-    padding: 15px 0;
-}
-
-.nav-content {
+/* 1. HEADER & NAVIGATIE */
+.main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 5%;
+    background-color: white; /* Of lichtgrijs, afhankelijk van uw voorkeur */
+    border-bottom: 1px solid #ddd;
 }
 
-.logo {
-    color: #fff;
+.logo span {
+    color: var(--primary-blue);
+    font-weight: bold;
     font-size: 1.2em;
 }
 
-/* CTA */
-.cta-button {
-    background: #e74c3c;
-    color: #fff;
-    padding: 12px 22px;
-    border-radius: 6px;
-    font-weight: bold;
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li a {
     text-decoration: none;
-    display: inline-block;
+    color: var(--text-color);
+    padding: 10px 15px;
 }
 
-.nav-cta {
-    white-space: nowrap;
+.main-nav li a:hover,
+.main-nav li:first-child a {
+    color: var(--accent-orange); /* Home is oranje in het voorbeeld */
 }
 
-/* HERO */
+/* CTA Header Knop */
+.cta-header-button a {
+    background-color: var(--accent-orange);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    white-space: nowrap; /* Zorgt dat het telefoonnummer op één lijn blijft */
+}
+
+/* 2. HERO SECTIE */
 .hero-section {
+    background-image: url('hero-banner.jpg'); /* Vervang met uw gekozen afbeelding */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 5%;
     position: relative;
-    background: url('cv_ketel_monteur.jpg') center/cover no-repeat;
-    padding: 80px 0;
-    color: #fff;
+    /* Donkere overlay voor leesbaarheid, zoals in de foto */
 }
 
 .hero-section::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparante zwarte laag */
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+    position: relative; /* Zorgt dat content boven de overlay ligt */
+    max-width: 50%; /* Zorgt dat tekst aan de linkerkant blijft */
+    z-index: 10;
 }
 
-.hero-text h1 {
-    font-size: 2.6em;
-    margin-bottom: 10px;
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-top: 0;
+    color: white;
 }
 
-.hero-text p {
-    font-size: 1.15em;
+.hero-content p {
+    font-size: 1.1em;
 }
 
-.hero-trust {
-    margin-top: 20px;
-    font-size: 0.95em;
-}
-
-/* GROTE CTA */
-.huge-cta {
-    margin-top: 20px;
-    font-size: 1.4em;
-    border: 2px solid #fff;
-}
-
-/* VEILIGHEID */
-.safety-warning {
-    background: #f1c40f;
-    padding: 30px 0;
-}
-
-.warning-box {
-    background: #e67e22;
-    color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* USP */
-.usp-section {
-    background: #fff;
-    padding: 50px 0;
-}
-
-.usp-grid {
-    display: flex;
-    gap: 20px;
-}
-
-.usp-item {
-    flex: 1;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.usp-icon {
-    font-size: 2.8em;
-}
-
-.usp-item h3 {
-    color: #e74c3c;
-}
-
-/* REVIEWS */
-.reviews {
-    background: #f9f9f9;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.review-box {
-    max-width: 600px;
-    margin: auto;
-    font-style: italic;
-}
-
-/* FINAL CTA */
-.final-cta {
-    background: #1a2a47;
-    color: #fff;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.small-text {
-    font-size: 0.9em;
-    opacity: 0.9;
-}
-
-/* FOOTER */
-.footer {
-    background: #111;
-    color: #bbb;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer a {
-    color: #e74c3c;
+/* Hoofd CTA Knop */
+.cta-main-button {
+    display: inline-block;
+    background-color: var(--accent-orange);
+    color: white;
+    padding: 15px 30px;
     text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 20px 0;
 }
 
-/* MOBIEL */
-@media (max-width: 768px) {
-    .nav-content {
-        flex-direction: column;
-        gap: 10px;
-    }
+/* Waarschuwingsbox */
+.warning-box {
+    background-color: var(--warning-yellow);
+    color: var(--text-color);
+    padding: 20px;
+    border-left: 5px solid var(--accent-orange);
+    margin-top: 30px;
+}
 
-    .hero-text h1 {
-        font-size: 2em;
-    }
+/* 3. WAARDEPROPOSITIE / USP's */
+.usp-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 5%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Lichte schaduw zoals in het voorbeeld */
+}
 
-    .usp-grid {
-        flex-direction: column;
-    }
+.usp-box {
+    text-align: center;
+    flex-basis: 20%;
+    /* Stijlen voor de blauwe boxen met iconen moeten hier nog gedefinieerd worden (kleur, afmeting, etc.) */
+}
 
-    .huge-cta {
-        width: 100%;
-        text-align: center;
-    }
+/* 4. FOOTER CONTENT (Onderste gedeelte) */
+.footer-content-section {
+    padding: 50px 5%;
+    background-color: var(--light-grey);
+}
+
+.cta-inline {
+    text-align: left;
+    color: var(--accent-orange);
+    font-weight: bold;
+}
+
+.phone-large {
+    font-size: 3em;
+    margin: 10px 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+.two-column-layout {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.left-column, .right-column {
+    flex-basis: 48%; /* Bijvoorbeeld */
+}
+
+.price-info-box {
+    background-color: #E0F7FA; /* Zeer lichtblauw */
+    padding: 15px;
+    border-left: 3px solid #00BCD4;
+    margin-bottom: 20px;
 }
