@@ -99,7 +99,7 @@ body {
 
 /* 2. HERO SECTIE */
 .hero-section {
-    background-image: url('hero-banner.jpg');
+    background-image: url('hero.jpg');
     background-size: cover;
     background-position: right center;
     height: 520px;
