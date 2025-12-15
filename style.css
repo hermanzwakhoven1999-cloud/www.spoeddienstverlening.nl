@@ -1,17 +1,25 @@
-/* Globale instellingen */
+/* Globale instellingen & Resets */
 :root {
     --primary-blue: #00456B; /* Donkerblauw */
     --accent-orange: #FF6633; /* Helder Oranje/Rood voor CTA */
     --warning-yellow: #FFC107; /* Geel voor waarschuwingsbox */
-    --light-grey: #F5F5F5;
+    --light-grey: #F8F8F8; /* Zeer lichtgrijs */
     --text-color: #333;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     color: var(--text-color);
+    background-color: white;
+}
+
+/* CONTAINER voor centreren */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* 1. HEADER & NAVIGATIE */
@@ -20,14 +28,24 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    background-color: white; /* Of lichtgrijs, afhankelijk van uw voorkeur */
-    border-bottom: 1px solid #ddd;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Lichte schaduw voor diepte */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 35px; /* Iets groter logo */
+    margin-right: 10px;
 }
 
 .logo span {
     color: var(--primary-blue);
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .main-nav ul {
@@ -40,34 +58,43 @@ body {
 .main-nav li a {
     text-decoration: none;
     color: var(--text-color);
-    padding: 10px 15px;
+    padding: 15px 15px;
+    transition: color 0.3s;
+    font-weight: 600;
 }
 
 .main-nav li a:hover,
-.main-nav li:first-child a {
-    color: var(--accent-orange); /* Home is oranje in het voorbeeld */
+.main-nav li:first-child a { /* Home is oranje in het voorbeeld */
+    color: var(--accent-orange);
 }
 
 /* CTA Header Knop */
 .cta-header-button a {
     background-color: var(--accent-orange);
     color: white;
-    padding: 10px 15px;
+    padding: 10px 18px;
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
-    white-space: nowrap; /* Zorgt dat het telefoonnummer op één lijn blijft */
+    white-space: nowrap;
+    transition: background-color 0.3s;
+}
+
+.cta-header-button a:hover {
+    background-color: #e05c28; 
 }
 
 /* 2. HERO SECTIE */
 .hero-section {
-    background-image: url('hero-banner.jpg'); /* Vervang met uw gekozen afbeelding */
+    background-image: url('hero-banner.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center 30%; /* Focus de monteur */
     color: white;
-    padding: 100px 5%;
+    padding: 80px 5%;
     position: relative;
-    /* Donkere overlay voor leesbaarheid, zoals in de foto */
+    height: 450px; /* Vaste hoogte voor de banner */
+    display: flex;
+    align-items: center;
 }
 
 .hero-section::before {
@@ -77,19 +104,20 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparante zwarte laag */
+    background: rgba(0, 0, 0, 0.55); /* Donkerdere overlay */
+    z-index: 1;
 }
 
 .hero-content {
-    position: relative; /* Zorgt dat content boven de overlay ligt */
-    max-width: 50%; /* Zorgt dat tekst aan de linkerkant blijft */
+    position: relative; 
+    max-width: 450px; 
     z-index: 10;
 }
 
 .hero-content h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
     margin-top: 0;
-    color: white;
+    line-height: 1.1;
 }
 
 .hero-content p {
@@ -107,49 +135,110 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 /* Waarschuwingsbox */
 .warning-box {
     background-color: var(--warning-yellow);
     color: var(--text-color);
-    padding: 20px;
-    border-left: 5px solid var(--accent-orange);
-    margin-top: 30px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* 3. WAARDEPROPOSITIE / USP's */
-.usp-section {
+.warning-box h4 {
+    margin-top: 0;
+    color: #CC0000; /* Extra rode waarschuwingskleur */
+}
+
+/* 3. WAARDEPROPOSITIE / USP's & ZIJBalk */
+.usp-wrapper-section {
+    position: relative;
+    z-index: 20; /* Zorgt dat deze sectie boven andere content staat */
+    padding: 0 5%;
+    margin-bottom: 50px;
+}
+
+.usp-container {
     display: flex;
     justify-content: space-around;
-    padding: 30px 5%;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Lichte schaduw zoals in het voorbeeld */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: -60px; /* TREK BOXEN OVER DE BANNER */
+    padding: 20px 10px;
+    border-radius: 8px;
+    flex-basis: 75%;
 }
 
 .usp-box {
     text-align: center;
-    flex-basis: 20%;
-    /* Stijlen voor de blauwe boxen met iconen moeten hier nog gedefinieerd worden (kleur, afmeting, etc.) */
+    padding: 0 10px;
+    border-right: 1px solid #ddd; 
+}
+
+.usp-box:last-child {
+    border-right: none;
+}
+
+.usp-box img {
+    height: 50px;
+    width: 50px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.usp-box p {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+/* Zijbalk Intergas */
+.intergas-box {
+    position: absolute; /* Plaats naast de USP-container */
+    top: -60px;
+    right: 5%;
+    width: 20%;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.intergas-box h3 {
+    color: var(--primary-blue);
+    margin-top: 0;
+    font-size: 1.2em;
 }
 
 /* 4. FOOTER CONTENT (Onderste gedeelte) */
 .footer-content-section {
     padding: 50px 5%;
-    background-color: var(--light-grey);
+    background-color: var(--light-grey); /* Gebruik lichte achtergrond */
 }
 
 .cta-inline {
-    text-align: left;
+    margin-bottom: 30px;
+}
+
+.cta-inline h2 {
     color: var(--accent-orange);
-    font-weight: bold;
+    font-weight: 800;
+    font-size: 1.5em;
+    margin-bottom: 5px;
 }
 
 .phone-large {
-    font-size: 3em;
-    margin: 10px 0;
+    font-size: 3.5em;
+    margin: 0;
     color: var(--primary-blue);
     font-weight: bold;
+    line-height: 1;
 }
 
 .two-column-layout {
@@ -158,13 +247,9 @@ body {
     margin-top: 30px;
 }
 
-.left-column, .right-column {
-    flex-basis: 48%; /* Bijvoorbeeld */
-}
-
-.price-info-box {
-    background-color: #E0F7FA; /* Zeer lichtblauw */
-    padding: 15px;
-    border-left: 3px solid #00BCD4;
-    margin-bottom: 20px;
-}
+.left-column {
+    flex-basis: 55%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0
