@@ -1,0 +1,187 @@
+/* BASIS */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADER */
+.header {
+    background: #1a2a47;
+    padding: 15px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+/* CTA */
+.cta-button {
+    background: #e74c3c;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-cta {
+    white-space: nowrap;
+}
+
+/* HERO */
+.hero-section {
+    position: relative;
+    background: url('cv_ketel_monteur.jpg') center/cover no-repeat;
+    padding: 80px 0;
+    color: #fff;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 2.6em;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.15em;
+}
+
+.hero-trust {
+    margin-top: 20px;
+    font-size: 0.95em;
+}
+
+/* GROTE CTA */
+.huge-cta {
+    margin-top: 20px;
+    font-size: 1.4em;
+    border: 2px solid #fff;
+}
+
+/* VEILIGHEID */
+.safety-warning {
+    background: #f1c40f;
+    padding: 30px 0;
+}
+
+.warning-box {
+    background: #e67e22;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* USP */
+.usp-section {
+    background: #fff;
+    padding: 50px 0;
+}
+
+.usp-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.usp-item {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.usp-icon {
+    font-size: 2.8em;
+}
+
+.usp-item h3 {
+    color: #e74c3c;
+}
+
+/* REVIEWS */
+.reviews {
+    background: #f9f9f9;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.review-box {
+    max-width: 600px;
+    margin: auto;
+    font-style: italic;
+}
+
+/* FINAL CTA */
+.final-cta {
+    background: #1a2a47;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.small-text {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* FOOTER */
+.footer {
+    background: #111;
+    color: #bbb;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+/* MOBIEL */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .usp-grid {
+        flex-direction: column;
+    }
+
+    .huge-cta {
+        width: 100%;
+        text-align: center;
+    }
+}
