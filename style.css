@@ -3,7 +3,7 @@
     --primary-blue: #00456B; /* Donkerblauw */
     --accent-orange: #FF6633; /* Helder Oranje/Rood voor CTA */
     --warning-yellow: #FFC107; /* Geel voor waarschuwingsbox */
-    --light-grey: #F8F8F8; /* Zeer lichtgrijs */
+    --light-grey: #F8F8F8; 
     --text-color: #333;
 }
 
@@ -15,13 +15,6 @@ body {
     background-color: white;
 }
 
-/* CONTAINER voor centreren */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 /* 1. HEADER & NAVIGATIE */
 .main-header {
     display: flex;
@@ -29,7 +22,7 @@ body {
     align-items: center;
     padding: 10px 5%;
     background-color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Lichte schaduw voor diepte */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
 }
 
 .logo {
@@ -38,7 +31,7 @@ body {
 }
 
 .logo img {
-    height: 35px; /* Iets groter logo */
+    height: 40px; 
     margin-right: 10px;
 }
 
@@ -59,12 +52,11 @@ body {
     text-decoration: none;
     color: var(--text-color);
     padding: 15px 15px;
-    transition: color 0.3s;
     font-weight: 600;
 }
 
 .main-nav li a:hover,
-.main-nav li:first-child a { /* Home is oranje in het voorbeeld */
+.main-nav li:first-child a {
     color: var(--accent-orange);
 }
 
@@ -72,64 +64,35 @@ body {
 .cta-header-button a {
     background-color: var(--accent-orange);
     color: white;
-    padding: 10px 18px;
+    padding: 8px 15px; /* Iets kleiner dan de hoofd-CTA */
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
     white-space: nowrap;
-    transition: background-color 0.3s;
-}
-
-.cta-header-button a:hover {
-    background-color: #e05c28; 
 }
 
 /* 2. HERO SECTIE */
 .hero-section {
-    background-image: url('hero-banner.jpg');
+    background-image: url('hero-banner.jpg'); /* Controleer of u deze naam gebruikt! */
     background-size: cover;
-    background-position: center 30%; /* Focus de monteur */
+    background-position: center; 
     color: white;
     padding: 80px 5%;
     position: relative;
-    height: 450px; /* Vaste hoogte voor de banner */
+    height: 450px; 
     display: flex;
     align-items: center;
 }
 
-/* 2. HERO SECTIE */
-.hero-section {
-    background-image: url('hero.jpg');
-    background-size: cover;
-    background-position: right center;
-    height: 520px;
-    display: flex;
-}
-
-/* Linker donkere kolom */
-.hero-left {
-    width: 50%;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    align-items: center;
-}
-
-/* Inhoud */
-.hero-content {
-    padding: 60px;
-    max-width: 480px;
-    color: white;
-}
-
-.hero-content h1 {
-    font-size: 2.8em;
-    margin-top: 0;
-    line-height: 1.1;
-}
-
-.hero-content p {
-    font-size: 1.1em;
-    margin-bottom: 25px;
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Donkere overlay */
+    z-index: 1;
 }
 
 .hero-content {
@@ -139,13 +102,10 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 2.8em;
+    font-size: 2.5em;
     margin-top: 0;
     line-height: 1.1;
-}
-
-.hero-content p {
-    font-size: 1.1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Voor betere leesbaarheid */
 }
 
 /* Hoofd CTA Knop */
@@ -156,7 +116,7 @@ body {
     padding: 15px 30px;
     text-decoration: none;
     border-radius: 4px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
     margin: 20px 0;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -169,41 +129,40 @@ body {
     padding: 15px 20px;
     border-radius: 4px;
     margin-top: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .warning-box h4 {
     margin-top: 0;
-    color: #CC0000; /* Extra rode waarschuwingskleur */
+    color: #CC0000; 
 }
 
 /* 3. WAARDEPROPOSITIE / USP's & ZIJBalk */
 .usp-wrapper-section {
-    position: relative;
-    z-index: 20; /* Zorgt dat deze sectie boven andere content staat */
+    display: flex;
+    justify-content: space-between;
     padding: 0 5%;
+    align-items: flex-start;
     margin-bottom: 50px;
+    position: relative; /* Belangrijk voor de positionering */
+    z-index: 20; 
 }
 
 .usp-container {
     display: flex;
     justify-content: space-around;
+    flex-basis: 75%; /* Neemt 75% van de breedte in */
     background-color: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-top: -60px; /* TREK BOXEN OVER DE BANNER */
+    margin-top: -60px; /* Trek BOXEN OVER DE BANNER */
     padding: 20px 10px;
     border-radius: 8px;
-    flex-basis: 75%;
+    /* Flexbox zorgt voor strakke verdeling */
 }
 
 .usp-box {
     text-align: center;
+    flex-basis: 22%;
     padding: 0 10px;
-    border-right: 1px solid #ddd; 
-}
-
-.usp-box:last-child {
-    border-right: none;
 }
 
 .usp-box img {
@@ -219,23 +178,23 @@ body {
     font-size: 0.9em;
     font-weight: bold;
     color: var(--primary-blue);
+    line-height: 1.2;
 }
 
 /* Zijbalk Intergas */
 .intergas-box {
-    position: absolute; /* Plaats naast de USP-container */
-    top: -60px;
-    right: 5%;
-    width: 20%;
+    flex-basis: 20%; /* Neemt 20% van de breedte in */
     background-color: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
+    margin-top: -60px; /* Trek BOX OVER DE BANNER */
+    margin-left: 20px;
 }
 
 .intergas-box h3 {
-    color: var(--primary-blue);
+    color: var(--primary-color);
     margin-top: 0;
     font-size: 1.2em;
 }
@@ -243,23 +202,26 @@ body {
 /* 4. FOOTER CONTENT (Onderste gedeelte) */
 .footer-content-section {
     padding: 50px 5%;
-    background-color: var(--light-grey); /* Gebruik lichte achtergrond */
+    background-color: var(--light-grey); 
+}
+
+h2 {
+    font-size: 1.5em;
+    color: var(--text-color);
 }
 
 .cta-inline {
     margin-bottom: 30px;
 }
 
-.cta-inline h2 {
+.cta-inline i {
     color: var(--accent-orange);
-    font-weight: 800;
-    font-size: 1.5em;
-    margin-bottom: 5px;
+    margin-right: 5px;
 }
 
 .phone-large {
     font-size: 3.5em;
-    margin: 0;
+    margin: 5px 0 20px 0;
     color: var(--primary-blue);
     font-weight: bold;
     line-height: 1;
@@ -276,4 +238,89 @@ body {
     background-color: white;
     padding: 25px;
     border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.right-column {
+    flex-basis: 40%;
+}
+
+.price-info-box {
+    background-color: #E0F7FA; 
+    padding: 15px;
+    border-left: 5px solid #00BCD4; 
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.price-info-box h4 {
+    margin-top: 0;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    float: right;
+}
+
+.contact-form address {
+    margin-top: 50px;
+    font-style: normal;
+    color: #777;
+    clear: both;
+}
+
+/* ECHTE FOOTER */
+.bottom-footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--primary-blue);
+    color: white;
+    font-size: 0.9em;
+}
+
+/* Basis Responsiviteit voor kleinere schermen */
+@media (max-width: 992px) {
+    .usp-wrapper-section,
+    .two-column-layout {
+        flex-direction: column;
+    }
+
+    .usp-container, .intergas-box, .left-column, .right-column {
+        flex-basis: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    .usp-container {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+    .usp-box {
+        flex-basis: 45%;
+        margin-bottom: 15px;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero-section {
+        height: auto;
+        min-height: 400px;
+    }
+}
